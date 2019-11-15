@@ -44,7 +44,7 @@ public class Scan extends Cliqueur{
 				clearScreen();
 				System.out.println("vous avez " +pieceCounter + " euros");
 				System.out.println("Chaque click vaut " + valeurPiece);
-				System.out.println("Vous gagnez " + persecond +" par seconde");
+				System.out.println("Vous gagnez " + persecond +" par seconde ");
 			}*/
 		}
 	}
