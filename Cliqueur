@@ -25,6 +25,7 @@ public class Cliqueur {
 		}
 	}  
 	
+	
 	//Getters and Setters
 	public int getPieceCounter() {
 		return pieceCounter;
@@ -56,6 +57,14 @@ public class Cliqueur {
 	public void setTimer(Timer timer) {
 		this.timer = timer;
 	}
+
+	//renvoie un mélange précis d'infos sur le cliqueur
+	public String toString() {
+		return "Les éléments importants du cliqueur peuvent s'afficher ici : \n persecond = " +persecond+"\n pieceCounter= "+
+		pieceCounter+ "\n timerOn = "+ timerOn+"\n valeurPiece = "+valeurPiece+
+		"\n prixBonus = "+ prixBonus +"\n valeurBonus = "+valeurBonus;
+	}
+	
 	
 	
 }
