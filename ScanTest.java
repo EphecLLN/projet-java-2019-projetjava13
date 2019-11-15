@@ -1,13 +1,15 @@
-import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.*;
 
 import org.junit.jupiter.api.Test;
 
-public class ScanTest {
+class ScanTest {
 
 	@Test
-	void testScan() {
-		Scan sc = new Scan();
-		
-	}
+	void test() {
+		Scanner sc = new Scanner();
+		assertEquals("vous avez \n 1 euros", sc.Scan());
+		assertEquals("Chaque click vaut \n 1", sc.Scan());
+		assertEquals("Vous gagnez \n 0 par seconde", sc.Scan());
+		}
 
 }
