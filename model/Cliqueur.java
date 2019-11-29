@@ -6,13 +6,12 @@ import javax.swing.Timer;
 
 public class Cliqueur extends Observable {
 	
-	static int pieceCounter,timerSpeed,valeurPiece,prixBonus,valeurBonus,prixperSeconde,prixAuto,autoClick;
+	static int pieceCounter,timerSpeed,valeurPiece,prixBonus,valeurBonus,prixperSeconde,prixAuto,prixMalus;
 	static double perSecond;
 	static boolean timerOn;
 	static Timer timer;
 	
 	public Cliqueur() {
-		autoClick = 500;
 		prixAuto = 200;
 		prixperSeconde = 20;
 		perSecond = 0;
@@ -34,30 +33,57 @@ public class Cliqueur extends Observable {
 	}
 	
 	public void bonusUn() {
+		if(pieceCounter>=prixBonus) {
 		pieceCounter = pieceCounter - prixBonus;
 		prixBonus = prixBonus + 10;
 		valeurPiece ++; 
 		System.out.println(valeurPiece);
+		}
+		else {
+			System.out.println("Compte insuffisant");
+		}
 	}
 
 	public void bonusDeux() {
+		if(pieceCounter>=prixperSeconde) {
 		pieceCounter = pieceCounter - prixperSeconde;
 		prixperSeconde = prixperSeconde + 20;
 		perSecond = perSecond+0.1; 
 		timerUpdate(); 
+		}
+		else {
+			System.out.println("Compte insuffisant");
+		}
 	}
 	
 	public void bonusTrois() {
+		if(pieceCounter>=prixAuto) {
 		pieceCounter = pieceCounter - prixAuto;
-		pieceCounter += (autoClick*valeurPiece);
-		prixAuto = prixAuto + 200;
-		autoClick = autoClick + 500;
+		perSecond = perSecond*2;
+		prixAuto = prixAuto*2;
+	}
+		else {
+			System.out.println("Compte insuffisant");
+		}
+	}
+	
+	public void bonusQuatre() {
+		if(pieceCounter>=prixMalus) {
+		pieceCounter = pieceCounter - prixMalus;
+		prixMalus = prixMalus*2;
+		
+		//TODO
+	}
+		else {
+			System.out.println("Compte insuffisant");
+		}
 	}
 	public void text() {
-		System.out.println("Rajouter : " +valeurPiece + " tapez  1");
-		System.out.println("Ajouter un de valeur pour " + prixBonus + " pieces, tapez  2 ("+valeurPiece+")" );
-		System.out.println("Ajouter 0.1 pieces par seconde pour " + prixperSeconde + " tapez  3");
-		System.out.println("Acheter autoclicker "+autoClick +" pour : "+prixAuto +" tapez  4");
+		System.out.println("Pour ajouter : " +valeurPiece + " pieces tapez  1");
+		System.out.println("Pour ajouter ("+valeurPiece+") pièces pour " + prixBonus + ", tapez  2" );
+		System.out.println("Pour ajouter 0.1 pieces par seconde pour " + prixperSeconde + " tapez  3");
+		System.out.println("Pour doubler la vitesse pour : "+ prixAuto +" tapez  4");
+		System.out.println("Pour appliquer un malus pour : "+ prixMalus +" tapez  5");
 		System.out.println("Vous avez : "+ pieceCounter +" pieces");
 		System.out.println("Vous gagnez : "+ perSecond +" pieces par secondes");
 	}
@@ -93,3 +119,4 @@ public String timerUpdate() {
 	
 	
 }
+
