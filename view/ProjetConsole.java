@@ -23,10 +23,10 @@ public class ProjetConsole extends ProjetVue implements Observer {
 	@Override
 	public void update(Observable o, Object arg) {
 		System.out.println(model);
-		printHelp();
+		printResume();
 	}
 	
-	private void printHelp(){
+	private void printResume(){
 		model.text();
 	}
 	
@@ -34,36 +34,30 @@ public class ProjetConsole extends ProjetVue implements Observer {
 		public void run() {
 			while(true){
 			{
-				try{
-					
-				int j = sc.nextInt();
+
+				String j = sc.next();
 					switch(j){
-				case 1 :
+				case "1" :
 					controller.incremente();
-					printHelp();
+					printResume();
 					break;
-				case 2 : 
+				case "2" : 
 					controller.bonusUn();
-					printHelp();
+					printResume();
 					break;
-				case 3 :
+				case "3" :
 					controller.bonusDeux();
-					printHelp();
+					printResume();
 					break;
-				case 4 : 
+				case "4" : 
 					controller.bonusTrois();
-					printHelp();
+					printResume();
 					break;
 				default : 
-					affiche("Nombre incorrect");
-					printHelp();	
+					affiche("Input incorrect");
+					printResume();	
 					}
-				}
-			catch(InputMismatchException e){
-				affiche("Format d'input incorrect");
-				printHelp();
-				break;
-			}
+				
 		}
 	}
 }
