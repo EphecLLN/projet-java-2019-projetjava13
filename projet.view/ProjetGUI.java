@@ -59,6 +59,7 @@ public class ProjetGUI extends ProjetVue implements ActionListener{
 	public void createUi() {
 		//JFrame de base
 		JFrame window = new JFrame();
+		window.setName("Cliqueur");
 		window.setSize(800,900);
 		window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		window.getContentPane().setBackground(Color.white);
@@ -87,7 +88,7 @@ public class ProjetGUI extends ProjetVue implements ActionListener{
 		counterPanel.setBackground(Color.white);
 		counterPanel.setLayout(new GridLayout(2,1));
 		window.add(counterPanel);
-		//les labels sont crées plus haut car ils seront modifiés dynamiquement
+		//les labels sont crÃ©es plus haut car ils seront modifiÃ©s dynamiquement
 		counterLabel = new JLabel(Cliqueur.pieceCounter + " euros");
 		counterLabel.setForeground(Color.black);
 		counterLabel.setFont(font1);
@@ -99,7 +100,7 @@ public class ProjetGUI extends ProjetVue implements ActionListener{
 		counterPanel.add(perSecLabel);
 		
 		resultLabel = new JLabel();
-		resultLabel.setForeground(Color.black);
+		resultLabel.setForeground(Color.white);
 		resultLabel.setFont(font2);
 		resultLabel.setBounds(250, 560, 300, 200);
 		window.add(resultLabel);
@@ -168,7 +169,7 @@ public class ProjetGUI extends ProjetVue implements ActionListener{
 		button5.setActionCommand("enregistre");
 		Panel.add(button5);
 		
-		button6 = new JButton("Résultats");
+		button6 = new JButton("RÃ©sultats");
 		button6.setFont(font2);
 		button6.setFocusPainted(false);
 		button6.addActionListener(pHandler);
@@ -221,7 +222,7 @@ public void timerUpdate() {
 	}
 	public void test(JButton b) {
 		if(b.getText()=="?") {
-			messageText.setText("Vous n'avez pas débloqué ce bonus");
+			messageText.setText("Vous n'avez pas dÃ©bloquÃ© ce bonus");
 		}
 	}
 	
@@ -257,7 +258,7 @@ public void timerUpdate() {
 				
 				}
 				else {
-					messageText.setText("Vous n'avez pas assez de pièces");
+					messageText.setText("Vous n'avez pas assez de piÃ¨ces");
 					
 				}
 				break;
@@ -266,10 +267,11 @@ public void timerUpdate() {
 				controller.bonusDeux();
 				model.text();
 				actualise();
+				timerUpdate();
 				button2.setText("Change de monnaie pour "+ Cliqueur.prixBonus +"euros");
 				}
 				else {
-					messageText.setText("Vous n'avez pas assez de pièces");
+					messageText.setText("Vous n'avez pas assez de piÃ¨ces");
 					test(button2);
 					}
 		break;
@@ -283,7 +285,7 @@ public void timerUpdate() {
 			button3.setText("Double 'par sec' pour "+ Cliqueur.prixAuto +"euros");
 			}
 			else {
-				messageText.setText("Vous n'avez pas assez de pièces");
+				messageText.setText("Vous n'avez pas assez de piÃ¨ces");
 				test(button3);
 				}
 			break;
@@ -296,7 +298,7 @@ public void timerUpdate() {
 			button4.setText("Double le clic pour "+ Cliqueur.prixMalus +"euros");
 			}
 			else {
-				messageText.setText("Vous n'avez pas assez de pièces");
+				messageText.setText("Vous n'avez pas assez de piÃ¨ces");
 				test(button4);
 				}
 			break;
